@@ -6,6 +6,8 @@ TUI analog  linux roji with GAMBA and milfs
 
 Two countries battle for supremacy on a 500×500 map. A minimal real-time strategy game that runs entirely in your terminal with ncurses.
 
+![./rts.gif](./rts.gif)
+
 ---
 
 ## English
