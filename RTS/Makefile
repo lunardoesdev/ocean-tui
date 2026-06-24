@@ -1,9 +1,9 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -I. -I/usr/include/lua5.4
 TARGET = rts
-SOURCES = imp/main.cpp imp/game.cpp imp/input.cpp \
-          sqd/mapgen.cpp sqd/render.cpp \
-          cfg/config.cpp
+SOURCES = src/imp/main.cpp src/imp/game.cpp src/imp/input.cpp \
+          src/sqd/mapgen.cpp src/sqd/render.cpp \
+          src/cfg/config.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 LDFLAGS = -lncursesw -llua5.4
 
@@ -12,13 +12,13 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
-imp/%.o: imp/%.cpp types.h
+src/imp/%.o: src/imp/%.cpp types.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-sqd/%.o: sqd/%.cpp types.h
+src/sqd/%.o: src/sqd/%.cpp types.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-cfg/%.o: cfg/%.cpp types.h
+src/cfg/%.o: src/cfg/%.cpp types.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(TARGET)
